@@ -57,7 +57,7 @@ function HomeScreen() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `https://puffizzybackend.herokuapp.com/api/products/changepage?page=${page}&query=${query}`
+          `/api/products/changepage?page=${page}&query=${query}`
         );
         dispatch({ type: 'SEARCH_PAGE_SUCCESS', payload: data });
       } catch (err) {
@@ -74,7 +74,7 @@ function HomeScreen() {
     const filterPage = filter.page || page;
     const filterQuery = filter.query || query;
     return `${
-      skipPathname ? '' : 'https://puffizzybackend.herokuapp.com/changepage?'
+      skipPathname ? '' : '/changepage?'
     }&query=${filterQuery}&page=${filterPage}`;
   };
 
@@ -120,8 +120,7 @@ function HomeScreen() {
                     key={x + 1}
                     className="mx-1"
                     to={{
-                      pathname:
-                        'https://puffizzybackend.herokuapp.com/changepage',
+                      pathname: '/changepage',
                       search: getFilterUrl({ page: x + 1 }, true),
                     }}
                   >

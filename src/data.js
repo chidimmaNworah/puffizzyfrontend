@@ -13,7 +13,7 @@ const data = {
       description: 'Butterfly long ballerina acrylic press on nails',
     },
     {
-      name: 'Butterfly long ballerina nails',
+      name: ' ballerina nails',
       slug: 'Butterfly-ballerina-press-on-nails',
       category: 'Press On Nails',
       image: '/images/2.png',
