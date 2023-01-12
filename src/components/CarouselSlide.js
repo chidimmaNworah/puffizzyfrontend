@@ -37,7 +37,9 @@ export default function CarouselSlide() {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const { data } = await axios.get('/api/products');
+        const { data } = await axios.get(
+          'https://puffizzybackend.herokuapp.com/api/products'
+        );
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
@@ -55,7 +57,9 @@ export default function CarouselSlide() {
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x._id === products._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const { data } = await axios.get(
+      `https://puffizzybackend.herokuapp.com/api/products/${item._id}`
+    );
     if (data.countInStock < quantity) {
       window.alert('Sorry. Product is out of stock');
       return;
@@ -97,7 +101,7 @@ export default function CarouselSlide() {
 
                 <div className="inner-slide">
                   <Link
-                    to={`/product/${product.slug}`}
+                    to={`https://puffizzybackend.herokuapp.com/product/${product.slug}`}
                     className="text-decoration-none"
                   >
                     <img src={product.image} alt={product.name} />
