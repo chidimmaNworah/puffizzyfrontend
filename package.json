@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": "https://puffizzybackend.herokuapp.com/",
+  "proxy": "https://puffizzybackend.herokuapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
