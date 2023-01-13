@@ -63,7 +63,7 @@ function HomeScreen() {
       } catch (err) {
         dispatch({
           type: 'SEARCH_PAGE_FAIL',
-          payload: getError(searchPageError),
+          payload: getError(err),
         });
       }
     };

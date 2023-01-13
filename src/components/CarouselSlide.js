@@ -75,7 +75,7 @@ export default function CarouselSlide() {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Carousel showArrows autoPlay showThumbs={false}>
-            {products.map((product) => (
+            {products?.map((product) => (
               <div className="outer">
                 <div className="the-slides outer-slide">
                   <h3 className="text-white">SHOP NOW</h3>
