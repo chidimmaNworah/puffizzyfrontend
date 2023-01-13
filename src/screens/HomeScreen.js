@@ -103,7 +103,7 @@ function HomeScreen() {
             )}
 
             <Row>
-              {searchedProducts.map((product) => (
+              {searchedProducts?.map((product) => (
                 <Col
                   key={product.slug}
                   sm={6}
