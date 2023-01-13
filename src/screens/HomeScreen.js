@@ -98,7 +98,7 @@ function HomeScreen() {
           <MessageBox variant="danger">{searchPageError}</MessageBox>
         ) : (
           <>
-            {searchedProducts.length === 0 && (
+            {searchedProducts?.length === 0 && (
               <MessageBox>No Product Found</MessageBox>
             )}
 
