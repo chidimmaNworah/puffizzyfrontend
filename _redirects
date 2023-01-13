@@ -1,1 +1,6 @@
-/api/*  https://puffizzybackend.herokuapp.com/api/:splat 200
+/api/products https://puffizzybackend.herokuapp.com/api/products 200
+/api/products/ https://puffizzybackend.herokuapp.com/api/products/:splat 200
+/api/users https://puffizzybackend.herokuapp.com/api/users 200
+/api/users/ https://puffizzybackend.herokuapp.com/api/users/:splat 200
+/api/orders https://puffizzybackend.herokuapp.com/api/orders 200
+/api/orders/ https://puffizzybackend.herokuapp.com/api/orders/:splat 200
