@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useReducer } from 'react';
+import React, { useState, useContext, useReducer } from 'react';
 // import { CiUser, CiPhone, CiLocationOn } from 'react-icons/ci';
 // import { TfiEmail } from 'react-icons/tfi';
 import axios from 'axios';
@@ -11,7 +11,7 @@ import { Button } from 'react-bootstrap';
 const reducer = (state, action) => {
   switch (action.type) {
     case 'CREATE_SUCCESS':
-      return { ...state, loading: false, usermessage: action.payload };
+      return { ...state, loading: false };
     case 'CREATE_FAIL':
       return { ...state, loadingCreateReview: false, error: action.payload };
     default:
@@ -20,7 +20,7 @@ const reducer = (state, action) => {
 };
 
 export default function ContactScreen() {
-  const [{ loading, error, usermessage }, dispatch] = useReducer(reducer, {
+  const [dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
   });
@@ -31,9 +31,6 @@ export default function ContactScreen() {
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
-
-  const { state } = useContext(Store);
-  const { userInfo } = state;
 
   const submitHandler = async (e) => {
     e.preventDefault();
