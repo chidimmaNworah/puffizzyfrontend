@@ -8,6 +8,7 @@ import { Badge, Button, Col, ListGroup, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
+import { API_URL } from '../utils';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -37,7 +38,7 @@ export default function CarouselSlide() {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const { data } = await axios.get('/api/products');
+        const { data } = await axios.get(`${API_URL}/api/products`);
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
@@ -55,7 +56,7 @@ export default function CarouselSlide() {
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x._id === products._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const { data } = await axios.get(`${API_URL}/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       window.alert('Sorry. Product is out of stock');
       return;

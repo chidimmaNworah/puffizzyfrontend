@@ -3,3 +3,5 @@ export const getError = (error) => {
     ? error.response.data.message
     : error.message;
 };
+
+export const API_URL = 'https://puffizzybackend.herokuapp.com';

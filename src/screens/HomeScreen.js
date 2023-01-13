@@ -10,8 +10,10 @@ import MessageBox from '../components/MessageBox';
 import { useLocation } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { getError } from '../utils';
+import { getError, API_URL } from '../utils';
 import CarouselSlide from '../components/CarouselSlide.js';
+
+axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -57,7 +59,7 @@ function HomeScreen() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `/api/products/changepage?page=${page}&query=${query}`
+          `${API_URL}/api/products/changepage?page=${page}&query=${query}`
         );
         dispatch({ type: 'SEARCH_PAGE_SUCCESS', payload: data });
       } catch (err) {

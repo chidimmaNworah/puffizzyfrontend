@@ -36,7 +36,7 @@ import {
   AboutScreen,
 } from './screens';
 import { SearchBox, ProtectedRoute, AdminRoute } from './components';
-import { getError } from './utils.js';
+import { getError, API_URL } from './utils.js';
 import axios from 'axios';
 
 function App() {
@@ -57,7 +57,7 @@ function App() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`/api/products/categories`);
+        const { data } = await axios.get(`${API_URL}/api/products/categories`);
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));
