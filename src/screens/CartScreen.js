@@ -10,6 +10,7 @@ import MessageBox from '../components/MessageBox';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { API_URL } from '../utils';
+axios.defaults.withCredentials = true;
 
 export default function CartScreen() {
   const navigate = useNavigate();

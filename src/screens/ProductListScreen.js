@@ -9,6 +9,7 @@ import { Store } from '../Store';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { getError, API_URL } from '../utils';
+axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
   switch (action.type) {

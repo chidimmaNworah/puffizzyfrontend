@@ -13,6 +13,7 @@ import { getError, API_URL } from '../utils';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { toast } from 'react-toastify';
 import { Button } from 'react-bootstrap';
+axios.defaults.withCredentials = true;
 
 function reducer(state, action) {
   switch (action.type) {

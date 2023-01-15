@@ -7,6 +7,7 @@ import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
 import { getError, API_URL } from '../utils';
 import { Button } from 'react-bootstrap';
+axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
   switch (action.type) {

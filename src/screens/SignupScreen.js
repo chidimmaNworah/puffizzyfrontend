@@ -8,6 +8,7 @@ import axios from 'axios';
 import { Store } from '../Store';
 import { toast } from 'react-toastify';
 import { getError, API_URL } from '../utils';
+axios.defaults.withCredentials = true;
 
 export default function SignupScreen() {
   const navigate = useNavigate();

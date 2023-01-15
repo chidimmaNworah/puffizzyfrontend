@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { toast } from 'react-toastify';
 import { Store } from '../Store';
 import { getError, API_URL } from '../utils';
+axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
   switch (action.type) {
