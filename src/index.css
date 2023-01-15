@@ -214,6 +214,8 @@ button.thumbnail {
 
 .the-slides {
   max-height: rem;
+  width: 40%;
+  margin-left: 40px;
 }
 
 .first-slide-name {
@@ -235,6 +237,12 @@ button.thumbnail {
 
 .inner-slide {
   margin: 8px 40px;
+}
+.inner-slide a {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .footer-container {
@@ -367,10 +375,14 @@ textarea:focus {
   color: green;
 }
 
+.carousel .slide img {
+  max-width: 25rem;
+}
+
 @media screen and (max-width: 800px) {
   .slide_name {
     font-weight: 400;
-    padding: 1.5rem;
+    padding: 0.5rem;
     color: #fff;
     font-size: 1rem;
   }
