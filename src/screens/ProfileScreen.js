@@ -4,7 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
 import { toast } from 'react-toastify';
 import { Store } from '../Store';
-import { getError } from '../utils';
+import { getError, API_URL } from '../utils';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -35,7 +35,7 @@ export default function ProfileScreen() {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        '/api/users/profile',
+        `${API_URL}/api/users/profile`,
         {
           name,
           email,

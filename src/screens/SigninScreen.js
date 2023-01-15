@@ -7,7 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Store } from '../Store';
 import { toast } from 'react-toastify';
-import { getError } from '../utils';
+import { getError, API_URL } from '../utils';
 
 export default function SigninScreen() {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function SigninScreen() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('/api/users/signin', {
+      const { data } = await axios.post(`${API_URL}/api/users/signin`, {
         email,
         password,
       });

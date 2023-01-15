@@ -11,7 +11,7 @@ import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { getError } from '../utils';
+import { getError, API_URL } from '../utils';
 import { Store } from '../Store';
 import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
@@ -60,7 +60,7 @@ function ProductScreen() {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get(`/api/products/slug/${slug}`);
+        const result = await axios.get(`${API_URL}/api/products/slug/${slug}`);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err.message) });
@@ -75,7 +75,7 @@ function ProductScreen() {
   const BuyNowHandler = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${product._id}`);
+    const { data } = await axios.get(`${API_URL}/api/products/${product._id}`);
 
     if (data.countInStock < quantity) {
       return window.alert('Sorry. Product is out of stock');
@@ -90,7 +90,7 @@ function ProductScreen() {
   const addToCartHandler = async (item) => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const { data } = await axios.get(`${API_URL}/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       window.alert('Sorry. Product is out of stock');
       return;
@@ -109,7 +109,7 @@ function ProductScreen() {
     }
     try {
       const { data } = await axios.post(
-        `/api/products/${product._id}/reviews`,
+        `${API_URL}/api/products/${product._id}/reviews`,
         { rating, comment, name: userInfo.name },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -164,7 +164,7 @@ function ProductScreen() {
             <ListGroup.Item>Price : ₦{product.price}</ListGroup.Item>
             <ListGroup.Item>
               <Row xs={4} md={5} className="g-2">
-                {[product.image, ...product.images].map((x) => (
+                {[product.image, ...product.images]?.map((x) => (
                   <Col key={x}>
                     <Card>
                       <Button
@@ -233,7 +233,7 @@ function ProductScreen() {
           )}
         </div>
         <ListGroup>
-          {product.reviews.map((review) => (
+          {product.reviews?.map((review) => (
             <ListGroup.Item key={review._id}>
               <strong>{review.name}</strong>
               <Rating rating={review.rating} caption=" "></Rating>

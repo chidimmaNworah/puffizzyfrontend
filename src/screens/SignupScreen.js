@@ -7,7 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Store } from '../Store';
 import { toast } from 'react-toastify';
-import { getError } from '../utils';
+import { getError, API_URL } from '../utils';
 
 export default function SignupScreen() {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ export default function SignupScreen() {
       return;
     }
     try {
-      const { data } = await axios.post('/api/users/signup', {
+      const { data } = await axios.post(`${API_URL}/api/users/signup`, {
         name,
         email,
         password,

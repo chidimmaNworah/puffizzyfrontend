@@ -1,11 +1,8 @@
-import React, { useState, useContext, useReducer } from 'react';
-// import { CiUser, CiPhone, CiLocationOn } from 'react-icons/ci';
-// import { TfiEmail } from 'react-icons/tfi';
+import React, { useState, useReducer } from 'react';
 import axios from 'axios';
-import { getError } from '../utils';
+import { getError, API_URL } from '../utils';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { Store } from '../Store';
 import { Button } from 'react-bootstrap';
 
 const reducer = (state, action) => {
@@ -35,7 +32,7 @@ export default function ContactScreen() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('/api/users/message', {
+      const { data } = await axios.post(`${API_URL}/api/users/message`, {
         name,
         email,
         subject,

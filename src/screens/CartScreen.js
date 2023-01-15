@@ -9,6 +9,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import MessageBox from '../components/MessageBox';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { API_URL } from '../utils';
 
 export default function CartScreen() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function CartScreen() {
   } = state;
 
   const updateCartHandler = async (item, quantity) => {
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const { data } = await axios.get(`${API_URL}/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       window.alert('Sorry. Product is out of stock');
       return;
@@ -53,7 +54,7 @@ export default function CartScreen() {
             </MessageBox>
           ) : (
             <ListGroup>
-              {cartItems.map((item) => (
+              {cartItems?.map((item) => (
                 <ListGroup.Item key={item._id}>
                   <Row className="align-items-center">
                     <Col md={6}>
