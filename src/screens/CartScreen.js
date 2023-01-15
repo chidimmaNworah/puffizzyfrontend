@@ -43,7 +43,7 @@ export default function CartScreen() {
   return (
     <>
       <Helmet>
-        <title>Nailsrepublic Shopping Cart</title>
+        <title>Shopping Cart - Puffizzy</title>
       </Helmet>
       <h1>NailRepublic Cart</h1>
       <Row>

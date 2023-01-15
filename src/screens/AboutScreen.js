@@ -1,9 +1,13 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { Helmet } from 'react-helmet-async';
 
 export default function about() {
   return (
     <Container className="success-wrapper">
+      <Helmet>
+        <title>About Us</title>
+      </Helmet>
       <p className="text-gray-700 text-lg mb-8">
         We started PUFFIZZY.com with a singular mission, to supply quality,
         classic, latest and healthy smoking accessories to aid good smoking

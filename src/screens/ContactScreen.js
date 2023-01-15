@@ -4,6 +4,7 @@ import { getError, API_URL } from '../utils';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import { Helmet } from 'react-helmet-async';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -49,6 +50,9 @@ export default function ContactScreen() {
 
   return (
     <div className="contact">
+      <Helmet>
+        <title>Contact Us - Puffizzy</title>
+      </Helmet>
       <div className="contact-main">
         <div id="contact_info" className="contact-info">
           <div className="">

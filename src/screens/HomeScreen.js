@@ -83,7 +83,7 @@ function HomeScreen() {
   return (
     <>
       <Helmet>
-        <title>Nails Republic</title>
+        <title>Puffizzy Smoke Accessories Online Store</title>
       </Helmet>
       <h2>
         <i className="fas fa-magic"></i> Top Products
