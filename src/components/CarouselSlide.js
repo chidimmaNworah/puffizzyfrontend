@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
 import { API_URL } from '../utils';
+axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -109,7 +110,7 @@ export default function CarouselSlide() {
                   <ListGroup.Item>
                     <Row>
                       <Col>Price:</Col>
-                      <Col>₦{product.price}</Col>
+                      <Col>${product.price}</Col>
                     </Row>
                   </ListGroup.Item>
                   <ListGroup.Item>

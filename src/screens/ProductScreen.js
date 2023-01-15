@@ -47,7 +47,7 @@ function ProductScreen() {
   const [comment, setComment] = useState('');
   const [selectedImage, setSelectedImage] = useState('');
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
 
@@ -161,7 +161,7 @@ function ProductScreen() {
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Price : ₦{product.price}</ListGroup.Item>
+            <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
             <ListGroup.Item>
               <Row xs={4} md={5} className="g-2">
                 {[product.image, ...product.images]?.map((x) => (
@@ -193,7 +193,7 @@ function ProductScreen() {
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
-                    <Col>₦{product.price}</Col>
+                    <Col>${product.price}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>

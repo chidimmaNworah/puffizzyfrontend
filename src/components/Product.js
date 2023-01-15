@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useContext } from 'react';
 import { Store } from '../Store';
 import { API_URL } from '../utils';
+axios.defaults.withCredentials = true;
 
 function Product(props) {
   const { product } = props;
@@ -39,7 +40,7 @@ function Product(props) {
           <h6>{product.name}</h6>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
-        <Card.Text>₦{product.price}</Card.Text>
+        <Card.Text>${product.price}</Card.Text>
         {product.countInStock === 0 ? (
           <Button variant="light" disabled>
             Out of stock

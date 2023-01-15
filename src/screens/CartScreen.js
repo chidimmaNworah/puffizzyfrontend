@@ -88,7 +88,7 @@ export default function CartScreen() {
                       </Button>
                     </Col>
                     <Col md={2}>
-                      <span>₦{item.price}</span>{' '}
+                      <span>${item.price}</span>{' '}
                     </Col>
                     <Col md={1}>
                       <Button
